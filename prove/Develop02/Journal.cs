@@ -1,45 +1,52 @@
 
 public class Journal
 {
-    private List<Entry> entries = new List<Entry>();
+    // public Journal journal = new Journal();
+    public List<Entry> _entries = new List<Entry>();
 
     //adds entry
-    public void AddEntry(Entry entry)
+    public void AddEntry(Entry _entry)
     {
-        entries.Add(entry);
+        _entries.Add(_entry);
     }
 
     //each entry of journal is displayed
     public void DisplayJournal()
     {
         Console.WriteLine("Journal Entries:");
-        foreach (var entry in entries)
+        Console.WriteLine();
+        foreach (var _entry in _entries)
         {
-            Console.WriteLine($"Date: {entry._date.ToString("yyyy-MM-dd HH:mm:ss")}");
-            Console.WriteLine($"Prompt: {entry._prompt}");
-            Console.WriteLine($"Response: {entry._response}");
-            Console.WriteLine($"Mood: {entry._mood}");
+            Console.WriteLine($"Date: {_entry._date.ToString("yyyy-MM-dd HH:mm:ss")}");
+            Console.WriteLine($"Prompt: {_entry.Prompt}");
+            Console.WriteLine($"Response: {_entry._response}");
+            Console.WriteLine($"Mood: {_entry._mood}");
             Console.WriteLine();
+        }
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine();
+            Console.WriteLine("No entries found in the journal.");
         }
     }
 
 
-    //saves journal to csv journal.csv
-    public void SaveToCsv(string filePath)
+    //saves journal to file
+    public void SaveToFile(string filePath)
     {
         using (StreamWriter writer = new StreamWriter(filePath))
         {
             writer.WriteLine("Date,Prompt,Response");
 
-            foreach (var entry in entries)
+            foreach (var _entry in _entries)
             {
-                writer.WriteLine($"{entry._date.ToString("yyyy-MM-dd HH:mm:ss")},{entry._prompt},{entry._response}");
+                writer.WriteLine($"{_entry._date.ToString("yyyy-MM-dd HH:mm:ss")},{_entry.Prompt},{_entry._response},{_entry._mood}");
             }
         }
     }
 
 
-    //save to user file
+    //requests filename from user, if invalid follows with exception message
     public void SaveJournal()
     {
         Console.Write("Enter the filename to save the journal (e.g., journal.csv): ");
@@ -50,24 +57,28 @@ public class Journal
             Console.WriteLine("Invalid filename. The journal was not saved.");
             return;
         }
+
         try
         {
-            SaveToCsv(fileName);
+            SaveToFile(fileName);
             Console.WriteLine($"Journal saved to {fileName}");
+            Console.WriteLine();
         }
-                catch (Exception ex)
+
+        catch (Exception ex)
         {
             Console.WriteLine($"Error: {ex.Message}");
         }
+
     }
 
 
 
 
-    //load from user file
+    //load from user file, if invalid follows with exception message
     public void LoadJournal(string filePath)
     {
-        entries.Clear(); 
+        _entries.Clear(); 
 
         try
         {
@@ -84,7 +95,7 @@ public class Journal
                     }
 
                     string[] parts = line.Split(',');
-                    if (parts.Length == 3)
+                    if (parts.Length == 4)
                     {
                         DateTime _date = DateTime.Parse(parts[0]);
                         string _prompt = parts[1];
@@ -92,17 +103,19 @@ public class Journal
                         string _mood = parts[3];
 
                         Entry entry = new Entry();
-                        entry._date = DateTime.Now;
-                        entry._prompt = _prompt;
+                        entry._date = _date;
+                        entry.Prompt = _prompt;
                         entry._response = _response;
                         entry._mood = _mood;
 
-                        entries.Add(entry);
+                        _entries.Add(entry);
                     }
                 }
          
             }
             Console.WriteLine($"Journal loaded from {filePath}");
+            Console.WriteLine();
+            DisplayJournal();
         }
         catch (Exception ex)
         {
