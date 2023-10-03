@@ -10,6 +10,8 @@ public class Journal
         _entries.Add(_entry);
     }
 
+
+
     //each entry of journal is displayed
     public void DisplayJournal()
     {
@@ -31,6 +33,7 @@ public class Journal
     }
 
 
+
     //saves journal to file
     public void SaveToFile(string filePath)
     {
@@ -40,10 +43,11 @@ public class Journal
 
             foreach (var _entry in _entries)
             {
-                writer.WriteLine($"{_entry._date.ToString("yyyy-MM-dd HH:mm:ss")},{_entry._prompt},{_entry._response},{_entry._mood}");
+                writer.WriteLine($"{_entry._date},{_entry._prompt},{_entry._response},{_entry._mood}");
             }
         }
     }
+
 
 
     //requests filename from user, if invalid follows with exception message
@@ -81,8 +85,7 @@ public class Journal
         //replace any entries currently stored the journal
         _entries.Clear(); 
 
-        try
-        {
+
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string line;
@@ -118,12 +121,9 @@ public class Journal
             Console.WriteLine();
             DisplayJournal();
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
+
     }
-}
+
 
 
 // +-----------------------------------+
