@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 
 public class Prompt {
+
+        //list of random prompts to be chosen from
         public static List<string> _prompts = new List<string>{
             "What was your favorite part of the day?",
             "What was something new you learned today?",

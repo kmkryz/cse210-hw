@@ -23,8 +23,7 @@ public class Entry {
                 _prompt = _prompt,
                 _response = _userResponse,
                 _mood = _userMood
-                //TO EXCEED REQUIREMENTS I ADDED ANOTHER ENTRY TO THE USER
-                //JOURNAL ENTRY, THEIR OVERALL MOOD FOR THE DAY
+
             };
 
 

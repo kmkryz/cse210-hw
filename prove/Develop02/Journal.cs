@@ -17,7 +17,7 @@ public class Journal
         Console.WriteLine();
         foreach (var _entry in _entries)
         {
-            Console.WriteLine($"Date: {_entry._date.ToString("yyyy-MM-dd HH:mm:ss")}");
+            Console.WriteLine($"Date: {_entry._date}");
             Console.WriteLine($"Prompt: {_entry._prompt}");
             Console.WriteLine($"Response: {_entry._response}");
             Console.WriteLine($"Mood: {_entry._mood}");
@@ -78,6 +78,7 @@ public class Journal
     //load from user file, if invalid follows with exception message
     public void LoadJournal(string filePath)
     {
+        //replace any entries currently stored the journal
         _entries.Clear(); 
 
         try
