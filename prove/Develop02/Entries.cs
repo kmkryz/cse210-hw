@@ -1,7 +1,7 @@
 public class Entry {
 
     public DateTime _date;
-    public string Prompt;
+    public string  _prompt;
     public string _response;
     public string _mood;
 
@@ -20,7 +20,7 @@ public class Entry {
 
             Entry _entry = new Entry{
                 _date = DateTime.Now,
-                Prompt = _prompt,
+                _prompt = _prompt,
                 _response = _userResponse,
                 _mood = _userMood
                 //TO EXCEED REQUIREMENTS I ADDED ANOTHER ENTRY TO THE USER

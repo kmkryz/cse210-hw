@@ -18,7 +18,7 @@ public class Journal
         foreach (var _entry in _entries)
         {
             Console.WriteLine($"Date: {_entry._date.ToString("yyyy-MM-dd HH:mm:ss")}");
-            Console.WriteLine($"Prompt: {_entry.Prompt}");
+            Console.WriteLine($"Prompt: {_entry._prompt}");
             Console.WriteLine($"Response: {_entry._response}");
             Console.WriteLine($"Mood: {_entry._mood}");
             Console.WriteLine();
@@ -40,7 +40,7 @@ public class Journal
 
             foreach (var _entry in _entries)
             {
-                writer.WriteLine($"{_entry._date.ToString("yyyy-MM-dd HH:mm:ss")},{_entry.Prompt},{_entry._response},{_entry._mood}");
+                writer.WriteLine($"{_entry._date.ToString("yyyy-MM-dd HH:mm:ss")},{_entry._prompt},{_entry._response},{_entry._mood}");
             }
         }
     }
@@ -104,7 +104,7 @@ public class Journal
 
                         Entry entry = new Entry();
                         entry._date = _date;
-                        entry.Prompt = _prompt;
+                        entry._prompt = _prompt;
                         entry._response = _response;
                         entry._mood = _mood;
 
