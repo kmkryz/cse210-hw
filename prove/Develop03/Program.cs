@@ -32,7 +32,7 @@ class Program
         Console.Clear();
         Console.WriteLine();
         Console.WriteLine($"Scripture ({reference}): {scriptureText}");
-        Console.WriteLine("\nPress Enter to hide words in the scripture, or type 'quit' to exit.");
+        Console.WriteLine("Press Enter to hide words in the scripture, or type 'quit' to exit.");
         Console.WriteLine();
 
         int _wordsToHide = 1;
