@@ -8,20 +8,13 @@ class Program
         // Reference reference = new Reference("Proverbs 3:5-6");
         // Scripture scripture = new Scripture(reference, "Trust in the Lord with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths.");
 
-
+        Console.WriteLine("Welcome to Scipture Memorizer! What scripture will you be taking on today?");
+        Console.WriteLine();
         Console.WriteLine("Enter the scripture reference (e.g., 'Proverbs 3:5-6'):");
         string referenceInput = Console.ReadLine();
 
-        Reference reference;
-        try
-        {
-            reference = new Reference(referenceInput);
-        }
-        catch (ArgumentException)
-        {
-            Console.WriteLine("Invalid scripture reference format.");
-            return;
-        }
+        Reference reference = new Reference(referenceInput) ;
+
 
         Console.WriteLine("Enter the scripture text:");
         string scriptureText = Console.ReadLine();
@@ -32,6 +25,7 @@ class Program
         Console.Clear();
         Console.WriteLine();
         Console.WriteLine($"Scripture ({reference}): {scriptureText}");
+        Console.WriteLine();
         Console.WriteLine("Press Enter to hide words in the scripture, or type 'quit' to exit.");
         Console.WriteLine();
 
@@ -52,7 +46,6 @@ class Program
                 Console.Clear();
                 Console.Write($"Scripture: {reference} ");
                 scripture.HideWords(random);
-                // _hiddenCount = scripture._hiddenWordCount;
                 _hiddenCount += _wordsToHide;
 
                 Console.WriteLine("\n Press Enter to hide more words or type 'quit' to exit.");
@@ -66,14 +59,12 @@ class Program
             };
 
         }
-        if (_hiddenCount == scripture._wordCount){
-            Console.WriteLine("All words are hidden, restart program to test yourself again.");
+        
+        Console.WriteLine("All words are hidden, restart program to test yourself again.");
 
-        }
+        
 
     
-
-
     }
 }
 
