@@ -5,7 +5,8 @@ using System.Threading;
 
 public class Reflecting : Activity
 {
-    private string[] prompts = new string[]
+    private string[] _reflectionQuestions;
+    private string[] _prompts = new string[]
     {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
@@ -15,7 +16,7 @@ public class Reflecting : Activity
 
     public Reflecting(string name, string description, int duration) : base(name, description, duration)
     {
-        reflectionQuestions = new string[]
+        _reflectionQuestions = new string[]
         {
             "Why was this experience meaningful to you?",
             "Have you ever done anything like this before?",
@@ -36,31 +37,22 @@ public class Reflecting : Activity
         Random random = new Random();
 
         int totalSeconds = 0;
-        while (totalSeconds < duration)
+        while (totalSeconds < _duration)
         {
-            string randomPrompt = prompts[random.Next(prompts.Length)];
+            string randomPrompt = _prompts[random.Next(_prompts.Length)];
             Console.WriteLine(randomPrompt);
 
-            for (int i = 0; i < reflectionQuestions.Length && totalSeconds < duration; i++)
+            for (int i = 0; i < _reflectionQuestions.Length && totalSeconds < _duration; i++)
             {
-                Console.WriteLine(reflectionQuestions[i]);
+                Console.WriteLine(_reflectionQuestions[i]);
                 ShowSpinner(8); // Pause with spinner for 10 seconds
                 totalSeconds += 8;
             }
         }
 
         Console.WriteLine("Good job!");
-        Console.WriteLine($"You have completed {name} for {duration} seconds.");
+        Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
-    }
-
-    private void ShowSpinner(int seconds)
-    {
-        for (int i = 0; i < seconds; i++)
-        {
-            Console.Write($"Reflecting... |/-\\ "[i % 8] + "\r");
-            System.Threading.Thread.Sleep(1000);
-        }
     }
 }

@@ -3,26 +3,26 @@ using System.Threading;
 
 public class Activity
 {
-    protected string name;
-    protected string description;
-    protected int duration;
-    protected string[] reflectionQuestions;
+    protected string _name;
+    protected string _description;
+    protected int _duration;
+
 
     public Activity(string name, string description, int duration)
     {
-        this.name = name;
-        this.description = description;
-        this.duration = duration;
+        this._name = name;
+        this._description = description;
+        this._duration = duration;
 
     }
 
     public virtual void Start()
     {
-        Console.WriteLine($"Activity: {name}");
-        Console.WriteLine(description);
-        Console.WriteLine($"Duration: {duration} seconds");
+        Console.WriteLine($"Activity: {_name}");
+        Console.WriteLine(_description);
+        Console.WriteLine($"Duration: {_duration} seconds");
         Console.WriteLine("Prepare to begin...");
-        ShowSpinner(duration);
+        ShowSpinner(_duration);
 
     }
 

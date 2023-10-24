@@ -49,25 +49,25 @@ public class Breathing : Activity
         Console.WriteLine("Clear your mind and focus on your breathing.");
         Console.WriteLine("Let's begin:");
 
-        int Duration = duration; //to use duration value below; before changed
-        int interval = duration / 4;
+        int Duration = _duration; //to use duration value below; before changed
+        int interval = _duration / 4;
 
-        while (duration > 0)
+        while (_duration > 0)
         {
             Console.WriteLine("Breathe in...");
             ShowCountdown(interval);
-            duration -= interval;
+            _duration -= interval;
 
-            if (duration <= 0)
+            if (_duration <= 0)
                 break;
 
             Console.WriteLine("Breathe out...");
             ShowCountdown(interval);
-            duration -= interval;
+            _duration -= interval;
         }
 
         Console.WriteLine("Good job!");
-        Console.WriteLine($"You have completed {name} for {Duration} seconds.");
+        Console.WriteLine($"You have completed {_name} for {Duration} seconds.");
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
     }

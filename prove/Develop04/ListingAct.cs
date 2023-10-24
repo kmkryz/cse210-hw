@@ -3,7 +3,7 @@ using System.Threading;
 
 public class Listing : Activity
 {
-    private string[] prompts = new string[]
+    private string[] _prompts = new string[]
     {
         "Who are people that you appreciate?",
         "What are personal strengths of yours?",
@@ -20,7 +20,7 @@ public class Listing : Activity
         Console.WriteLine("Let's begin:");
 
         Random random = new Random();
-        string randomPrompt = prompts[random.Next(prompts.Length)];
+        string randomPrompt = _prompts[random.Next(_prompts.Length)];
 
         Console.WriteLine(randomPrompt);
 
@@ -34,7 +34,7 @@ public class Listing : Activity
 
         while (true)
         {
-            if (DateTime.Now - startTime >= TimeSpan.FromSeconds(duration))
+            if (DateTime.Now - startTime >= TimeSpan.FromSeconds(_duration))
                 break;
 
             string input = Console.ReadLine();
@@ -48,7 +48,7 @@ public class Listing : Activity
 
         Console.WriteLine($"You listed {itemCounter} items.");
         Console.WriteLine("Good job!");
-        Console.WriteLine($"You have completed {name} for {duration} seconds.");
+        Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
     }
