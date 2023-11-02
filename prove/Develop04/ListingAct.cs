@@ -9,7 +9,7 @@ public class Listing : Activity
         "What are personal strengths of yours?",
         "Who are people that you have helped this week?",
         "When have you felt the Holy Ghost this month?",
-        "Who are some of your personal heroes"
+        "Who are some of your personal heroes?"
     };
 
     public Listing(string name, string description, int duration) : base(name, description, duration) { }
@@ -17,16 +17,18 @@ public class Listing : Activity
     public override void Start()
     {
         base.Start();
-        Console.WriteLine("Let's begin:");
+        Console.WriteLine("");
 
         Random random = new Random();
         string randomPrompt = _prompts[random.Next(_prompts.Length)];
 
-        Console.WriteLine(randomPrompt);
+        Console.WriteLine($"---{randomPrompt}---");
+        Console.WriteLine("");
 
         Console.WriteLine("Get ready to list items...");
         ShowCountdown(5); // Countdown for 5 seconds to prepare
 
+        Console.WriteLine("");
         Console.WriteLine("Start listing items:");
 
         DateTime startTime = DateTime.Now;
@@ -45,12 +47,11 @@ public class Listing : Activity
                 
             }
         }
+        Console.WriteLine("");
+        Console.WriteLine($"You listed {itemCounter} item(s).");
 
-        Console.WriteLine($"You listed {itemCounter} items.");
-        Console.WriteLine("Good job!");
-        Console.WriteLine($"You have completed {_name} for {_duration} seconds.");
-        Console.WriteLine("Press any key to continue.");
-        Console.ReadKey();
+        
+        EndMessage(_duration);
     }
 
     private void ShowCountdown(int seconds)

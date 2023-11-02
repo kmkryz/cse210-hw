@@ -10,7 +10,7 @@ class Program
             Console.WriteLine("Menu:");
             Console.WriteLine("1. Breathing");
             Console.WriteLine("2. Reflecting");
-            Console.WriteLine("3. Listening");
+            Console.WriteLine("3. Listing");
             Console.WriteLine("4. Exit");
             Console.Write("Enter your choice: ");
             int choice = int.Parse(Console.ReadLine());
@@ -20,7 +20,8 @@ class Program
 
             if (choice != 4)
             {
-                Console.Write("Enter the duration (in seconds): ");
+                Console.WriteLine("");
+                Console.Write("How long, in seconds, would you like your session to last? ");
                 duration = int.Parse(Console.ReadLine());
             }
             else
