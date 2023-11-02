@@ -51,7 +51,7 @@ class Program
             if (activity != null)
             {
                 Console.Clear();
-                activity.Start();
+                activity.Run();
             }
         }
     }

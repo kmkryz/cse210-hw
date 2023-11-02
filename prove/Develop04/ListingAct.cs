@@ -3,24 +3,26 @@ using System.Threading;
 
 public class Listing : Activity
 {
-    private string[] _prompts = new string[]
+    private string[] _listPrompts = new string[]
     {
         "Who are people that you appreciate?",
         "What are personal strengths of yours?",
         "Who are people that you have helped this week?",
         "When have you felt the Holy Ghost this month?",
-        "Who are some of your personal heroes?"
+        "Who are some of your personal heroes?",
+        "What are some things that made your day better today?",
+        "What are some things you could improve upon?"
     };
 
     public Listing(string name, string description, int duration) : base(name, description, duration) { }
 
-    public override void Start()
+    public override void Run()
     {
-        base.Start();
+        base.Run();
         Console.WriteLine("");
 
         Random random = new Random();
-        string randomPrompt = _prompts[random.Next(_prompts.Length)];
+        string randomPrompt = _listPrompts[random.Next(_listPrompts.Length)];
 
         Console.WriteLine($"---{randomPrompt}---");
         Console.WriteLine("");
@@ -53,6 +55,8 @@ public class Listing : Activity
         
         EndMessage(_duration);
     }
+
+
 
     private void ShowCountdown(int seconds)
     {

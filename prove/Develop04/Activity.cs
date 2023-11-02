@@ -16,7 +16,8 @@ public class Activity
 
     }
 
-    public virtual void Start()
+
+    public virtual void Run()
     {
         Console.WriteLine("");
         Console.WriteLine($"Welcome to the {_name} activity!");
@@ -30,7 +31,8 @@ public class Activity
 
     }
 
-    public virtual void EndMessage(int duration)
+
+    protected virtual void EndMessage(int duration)
     {
         Console.WriteLine("");
         Console.WriteLine("");

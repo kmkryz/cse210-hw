@@ -4,7 +4,7 @@ using System.Threading;
 
 public class Reflecting : Activity
 {
-    private string[] _reflectionQuestions;
+    
     private string[] _prompts = new string[]
     {
         "Think of a time when you stood up for someone else.",
@@ -16,10 +16,8 @@ public class Reflecting : Activity
         "Reflect on a moment when you faced your fears and took a leap of faith."
     };
 
-    public Reflecting(string name, string description, int duration) : base(name, description, duration)
+    private string[] _reflectionQuestions = new string[]
     {
-        _reflectionQuestions = new string[]
-        {
             "What did you learn about yourself during this experience?",
             "In what ways has this experience changed your perspective on life?",
             "Why was this experience meaningful to you?",
@@ -33,12 +31,13 @@ public class Reflecting : Activity
             "What could you learn from this experience that applies to other situations?",
             "What did you learn about yourself through this experience?",
             "How can you keep this experience in mind in the future?"
-        };
-    }
+    };
 
-    public override void Start()
+    public Reflecting(string name, string description, int duration) : base(name, description, duration){}
+
+    public override void Run()
 {
-    base.Start();
+    base.Run();
     Random random = new Random();
     DateTime startTime = DateTime.Now;
 
@@ -70,6 +69,7 @@ public class Reflecting : Activity
     }
 }
 
+
 //Reflect spinner seperate to end on a more accurate time
 private void ShowReflectSpinner(int seconds)
 {
@@ -84,7 +84,6 @@ private void ShowReflectSpinner(int seconds)
     Console.Write(new string(' ', 15) + "\r"); // Clear the spinner
     Console.WriteLine("");
 }
-
 
 
 }

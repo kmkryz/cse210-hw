@@ -6,11 +6,11 @@ public class Breathing : Activity
 {
     public Breathing(string name, string description, int duration) : base(name, description, duration) { }
 
-    public override void Start()
+
+
+    public override void Run()
     {
-        base.Start();
-
-
+        base.Run();
         int Duration = _duration; //to use duration value below; before changed
         int interval = _duration / 4;
 
