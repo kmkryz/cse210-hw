@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation1 World!");
+        
         // Create videos
         Video video1 = new Video("Introduction to C#", "CSharpLover123", 300);
         video1.AddComment("Alice", "Great tutorial!");
