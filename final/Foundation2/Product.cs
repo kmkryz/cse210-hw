@@ -1,32 +1,40 @@
 using System;
-using System.Collections.Generic;
+
 class Product
 {
-    private string name;
-    private string productId;
-    private double price;
-    private int quantity;
+    private string _name;
+    private string _productId;
+    private double _price;
+    private int _quantity;
+
+
 
     public Product(string name, string productId, double price, int quantity)
     {
-        this.name = name;
-        this.productId = productId;
-        this.price = price;
-        this.quantity = quantity;
+        this._name = name;
+        this._productId = productId;
+        this._price = price;
+        this._quantity = quantity;
     }
+
+
 
     public double CalculatePrice()
     {
-        return price * quantity;
+        return _price * _quantity;
     }
+
+
 
     public string GetName()
     {
-        return name;
+        return _name;
     }
+
+
 
     public string GetProductId()
     {
-        return productId;
+        return _productId;
     }
 }

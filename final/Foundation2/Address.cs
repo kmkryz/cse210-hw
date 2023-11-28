@@ -1,28 +1,28 @@
 using System;
-using System.Collections.Generic;
+
 
 class Address
 {
-    private string street;
-    private string city;
-    private string state;
-    private string country;
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
 
     public Address(string street, string city, string state, string country)
     {
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.country = country;
+        this._street = street;
+        this._city = city;
+        this._state = state;
+        this._country = country;
     }
 
     public bool IsUSA()
     {
-        return country.ToLower() == "usa";
+        return _country.ToLower() == "usa";
     }
 
     public string GetFullAddress()
     {
-        return $"{street}\n{city}, {state}\n{country}";
+        return $"{_street}\n{_city}, {_state}\n{_country}";
     }
 }

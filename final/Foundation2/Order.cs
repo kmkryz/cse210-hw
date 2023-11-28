@@ -1,41 +1,51 @@
 using System;
-using System.Collections.Generic;
+
 
 class Order
 {
-    private Customer customer;
-    private List<Product> products;
+    private Customer _customer;
+    private List<Product> _products;
 
     public Order(Customer customer, List<Product> products)
     {
-        this.customer = customer;
-        this.products = products;
+        this._customer = customer;
+        this._products = products;
     }
+
+
 
     public double CalculateTotalPrice()
     {
-        double totalPrice = 0;
-        foreach (Product product in products)
+        double total = 0;
+        foreach (Product product in _products)
         {
-            totalPrice += product.CalculatePrice();
+            total += product.CalculatePrice();
         }
 
-        double shippingCost = customer.IsUSACustomer() ? 5 : 35;
-        return totalPrice + shippingCost;
+        double shippingCost = _customer.IsUSACustomer() ? 5 : 35;
+        double totalPrice = total + shippingCost;
+
+        totalPrice = Math.Round(totalPrice, 2);
+
+        return totalPrice;
     }
+
+
 
     public string GeneratePackingLabel()
     {
         string packingLabel = "";
-        foreach (Product product in products)
+        foreach (Product product in _products)
         {
             packingLabel += $"{product.GetName()}, ID: {product.GetProductId()}\n";
         }
         return packingLabel;
     }
 
+
+
     public string GenerateShippingLabel()
     {
-        return $"{customer.GetName()}\n{customer.GetAddress()}";
+        return $"{_customer.GetName()}\n{_customer.GetAddress()}";
     }
 }
