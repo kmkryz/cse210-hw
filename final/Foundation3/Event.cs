@@ -3,33 +3,33 @@ using System;
 
 class Event
 {
-    protected string title;
-    protected string description;
-    protected string date;
-    protected string time;
-    protected Address address;
+    protected string _title;
+    protected string _description;
+    protected string _date;
+    protected string _time;
+    protected Address _address;
 
     public Event(string title, string description, string date, string time, Address address)
     {
-        this.title = title;
-        this.description = description;
-        this.date = date;
-        this.time = time;
-        this.address = address;
+        this._title = title;
+        this._description = description;
+        this._date = date;
+        this._time = time;
+        this._address = address;
     }
 
     public string StandardDetails()
     {
-        return $"Event: {title}\nDescription: {description}\nDate: {date}\nTime: {time}\nAddress: {address}";
+        return $"Event: {_title}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\nAddress: {_address}";
     }
 
     public virtual string FullDetails()
     {
-        return $"{StandardDetails()}\nType: Generic Event";
+        return $"{StandardDetails()}\nType: ";
     }
 
     public virtual string ShortDescription()
     {
-        return $"Type: Generic Event\nTitle: {title}\nDate: {date}";
+        return $"Type: Generic Event\nTitle: {_title}\nDate: {_date}";
     }
 }

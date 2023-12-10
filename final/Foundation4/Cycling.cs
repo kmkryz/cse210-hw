@@ -2,17 +2,17 @@ using System;
 
 class Cycling : Activity
 {
-    public double _speed { get; }
+    private double _speed;
 
     public Cycling(string date, int duration, double speed)
         : base(date, duration)
     {
-        _speed = speed;
+        this._speed = speed;
     }
 
     public override double GetDistance()
     {
-        return (_speed * Duration) / 60;
+        return (_speed * _duration) / 60;
     }
 
     public override double GetSpeed()

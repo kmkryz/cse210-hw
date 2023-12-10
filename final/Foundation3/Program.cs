@@ -6,14 +6,14 @@ class Program
     {
         
 
-        Address address1 = new Address("123 Main St", "Cityville", "CA", "12345");
-        Lecture lectureEvent = new Lecture("Tech Talk", "Exciting tech discussion", "2023-01-15", "15:00", address1, "John Doe", 50);
+        Address address1 = new Address("1768 Main St", "Fairhaven", "CA", "12345");
+        Lecture lectureEvent = new Lecture("Tech Talk", "Exciting tech discussion featuring the\nnewest updates for TBoT Max!", "01-15-2023", "3:00 PM", address1, "Thomas Rankin", 50);
 
-        Address address2 = new Address("456 Park Ave", "Townsville", "NY", "67890");
-        Reception receptionEvent = new Reception("Networking Mixer", "Casual networking event", "2023-02-20", "18:30", address2, "rsvp@example.com");
+        Address address2 = new Address("456 Park Ave", "Cocoaville", "FL", "67890");
+        Reception receptionEvent = new Reception("Networking Mixer", "Casual networking event for\nnewest employees with Obexum", "02-23-2023", "5:30 PM", address2, "rsvp@example.com");
 
-        Address address3 = new Address("789 Outdoor Rd", "Villagetown", "TX", "13579");
-        OutdoorGathering outdoorEvent = new OutdoorGathering("Community Picnic", "Family-friendly picnic", "2023-03-25", "12:00", address3, "Sunny with a high of 75°F");
+        Address address3 = new Address("729 Outkin Rd", "Carpe Village", "TX", "13579");
+        OutdoorGathering outdoorEvent = new OutdoorGathering("Community 4th of July Picnic", "Family-friendly picnic,\nfireworks, BBQ, and fun!", "07-02-2023", "12:00 PM", address3, "Sunny with a high of 75°F");
 
         Event[] events = { lectureEvent, receptionEvent, outdoorEvent };
 
@@ -27,6 +27,9 @@ class Program
 
             Console.WriteLine("\n--- Short Description ---");
             Console.WriteLine(e.ShortDescription());
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
     }
 }
 }

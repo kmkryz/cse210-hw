@@ -3,21 +3,21 @@ using System;
 
 class Address
 {
-    public string Street { get; set; }
-    public string City { get; set; }
-    public string State { get; set; }
-    public string ZipCode { get; set; }
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _zipCode;
 
     public Address(string street, string city, string state, string zipCode)
     {
-        Street = street;
-        City = city;
-        State = state;
-        ZipCode = zipCode;
+        _street = street;
+        _city = city;
+        _state = state;
+        _zipCode = zipCode;
     }
 
     public override string ToString()
     {
-        return $"{Street}, {City}, {State} {ZipCode}";
+        return $"{_street}, {_city}, {_state} {_zipCode}";
     }
 }

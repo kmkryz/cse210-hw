@@ -2,13 +2,13 @@ using System;
 
 class Activity
 {
-    public string Date { get; }
-    public int Duration { get; }
+    protected string _date;
+    protected int _duration;
 
     public Activity(string date, int duration)
     {
-        Date = date;
-        Duration = duration;
+        this._date = date;
+        this._duration = duration;
     }
 
     public virtual double GetDistance()
@@ -32,7 +32,7 @@ class Activity
         double speed = GetSpeed();
         double pace = GetPace();
 
-        string summary = $"{Date} {GetType().Name} ({Duration} min):";
+        string summary = $"{_date} - {GetType().Name} - ({_duration} min):";
         summary += $" Distance: {distance:F2} miles, Speed: {speed:F2} mph, Pace: {pace:F2} min per mile";
 
         return summary;
