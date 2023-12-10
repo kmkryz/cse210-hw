@@ -3,7 +3,7 @@ using System;
 
 class Swimming : Activity
 {
-    public int _laps { get; }
+    private int _laps { get; }
 
     public Swimming(string date, int duration, int laps)
         : base(date, duration)
