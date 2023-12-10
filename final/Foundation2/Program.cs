@@ -31,6 +31,7 @@ class Program
         Order order3 = new Order(customer3, new List<Product> { product5, product6, product7});
 
         // Displaying results
+        Console.WriteLine();
         Console.WriteLine("Order 1:");
         Console.WriteLine();
         Console.WriteLine("Packing Label:");
@@ -39,7 +40,7 @@ class Program
         Console.WriteLine(order1.GenerateShippingLabel());
         Console.WriteLine($"\nTotal Price: ${order1.CalculateTotalPrice()}");
 
-
+        Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine("\nOrder 2:");
         Console.WriteLine();
@@ -49,7 +50,7 @@ class Program
         Console.WriteLine(order2.GenerateShippingLabel());
         Console.WriteLine($"\nTotal Price: ${order2.CalculateTotalPrice()}");
 
-
+        Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine("\nOrder 3:");
         Console.WriteLine();
